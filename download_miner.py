@@ -1,8 +1,10 @@
 from eth import gpu_filename as eth_gpu_filename
-from xmr import gpu_filename as xmr_gpu_filename
+from xmr import nv_filename as xmr_nv_filename
+from xmr import amd_filename as xmr_amd_filename
 from xmr import cpu_filename as xmr_cpu_filename
 from zec import cpu_filename as zec_cpu_filename
-from zec import gpu_filename as zec_gpu_filename
+from zec import nv_filename as zec_nv_filename
+from zec import amd_filename as zec_amd_filename
 from os import chdir, getlogin
 from platform import system
 import ftplib
@@ -44,11 +46,13 @@ def xmr_cpu():
         print("Unsupported OS")
 
     ftp.quit()
-def xmr_gpu():
+def xmr_gpu(gpu):
     if system() == "Windows":
         chdir(r'C:\Users\%s' % (getlogin()))
-        ftp.retrbinary("RETR " + xmr_gpu_filename, open(xmr_gpu_filename, 'wb').write)
-
+        if gpu == "NVIDIA":
+            ftp.retrbinary("RETR " + xmr_nv_filename, open(xmr_nv_filename, 'wb').write)
+        elif gpu == "AMD":
+            ftp.retrbinary("RETR " + xmr_amd_filename, open(xmr_amd_filename, 'wb').write)
     elif system() == "Darwin":
         pass
 
@@ -76,12 +80,14 @@ def zec_cpu():
 
     ftp.quit()
 
-def zec_gpu():
+def zec_gpu(gpu):
     if system() == "Windows":
         chdir(r'C:\Users\%s' % (getlogin()))
-        ftp.retrbinary("RETR " + zec_gpu_filename, open(zec_gpu_filename, 'wb').write)
-
-        elif system() == "Darwin":
+        if gpu == "AMD":
+            ftp.retrbinary("RETR " + zec_gpu_filename, open(zec_amd_filename, 'wb').write)
+        elif gpu == "NVIDIA":
+            ftp.retrbinary("RETR " + zec_nv_filename, open(zec_nv_filename, 'wb').write)
+    elif system() == "Darwin":
         pass
     
     elif system() == "Linux":
