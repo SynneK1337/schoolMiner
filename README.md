@@ -1,7 +1,12 @@
 # schoolMiner
-Prawdziwa konkurencja dla Przewroparki autorstwa Patłyka Szczepańskiego
+Simple script to run cryptocurrency miner in few seconds
 
-# Wspierane kryptowaluty
-* Monero (CPU i GPU)
-* ZCash (CPU i GPU)
-* Ethereum (GPU)
+# Supported CryptoCurrencies:
+* Monero (CPU and GPU)
+* ZCash (CPU and GPU)
+* Ethereum (GPU Only)
+
+# Supported OS:
+* Windows
+* GNU/Linux
+* macOS / OS X
