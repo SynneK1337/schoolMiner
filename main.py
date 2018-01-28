@@ -8,12 +8,10 @@ print("Welcome to schoolMiner\n"
       " - Monero (XMR)\n"
       " - ZCash (ZEC)\n")
 
-coin = input("Coin: ")
-coin = coin.upper()
+coin = input("Coin: ").upper()
 
 if coin == "ZEC" or coin == "XMR":
-    method = input("CPU or GPU? ")
-    method = method.upper()
+    method = input("CPU or GPU? ").upper()
 
 if coin == "ETH":
     download_miner.eth_gpu()
