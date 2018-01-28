@@ -19,13 +19,16 @@ if coin == "ETH":
     download_miner.eth_gpu()
 
 elif coin == "XMR" and method == "CPU":
-    xmr.cpu()
+    download_miner.xmr_cpu()
 
 elif coin == "XMR" and method == "GPU":
-    xmr.gpu()
+    download_miner.xmr_gpu()
 
 elif coin == "ZEC" and method == "CPU":
-    zec.cpu()
+    download_miner.zec_cpu()
 
 elif coin == "ZEC" and method == "GPU":
-    zec.gpu()
+    download_miner.zec_gpu()
+
+else:
+    print("Something went wrong... :(")
