@@ -1,5 +1,7 @@
 # schoolMiner
 Prawdziwa konkurencja dla Przewroparki autorstwa Patłyka Szczepańskiego
 
-# Cel projektu
-* Automatyzacja odpalania koparek w szkole
+# Wspierane kryptowaluty
+* Monero (CPU i GPU)
+* ZCash (CPU i GPU)
+* Ethereum (GPU)
