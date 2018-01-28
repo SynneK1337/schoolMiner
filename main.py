@@ -1,4 +1,6 @@
 #!/usr/bin/python
+import download_miner
+
 print("Welcome to schoolMiner\n"
       "Which coin you want to mine?\n"
       "Available Coins:\n"
@@ -14,7 +16,7 @@ if coin == "ZEC" or coin == "XMR":
     method = method.upper()
 
 if coin == "ETH":
-    eth()
+    download_miner.eth_gpu()
 
 elif coin == "XMR" and method == "CPU":
     xmr.cpu()
