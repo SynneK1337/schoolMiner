@@ -19,7 +19,7 @@ if coin == "ETH":
 elif coin == "XMR" and method == "CPU":
     xmr.cpu()
 
-elif coin == "XMR" and method == "GPU:
+elif coin == "XMR" and method == "GPU":
     xmr.gpu()
 
 elif coin == "ZEC" and method == "CPU":
