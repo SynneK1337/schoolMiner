@@ -1,2 +1,3 @@
 cpu_filename = "zeccpu.zip"
-gpu_filename = "zecgpu.zip"
+amd_filename = "zecamd.zip"
+nv_filename = "zecnv.zip"
