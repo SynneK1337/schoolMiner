@@ -10,3 +10,5 @@ Simple script to run cryptocurrency miner in few seconds
 * Windows
 * GNU/Linux
 * macOS / OS X
+
+If you want to give me VPS to host FTP Server with miners on it, contact with me via Discord: synnek#1648
