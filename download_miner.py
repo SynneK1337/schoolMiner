@@ -1,99 +1,48 @@
-from eth import gpu_filename as eth_gpu_filename
-from xmr import nv_filename as xmr_nv_filename
-from xmr import amd_filename as xmr_amd_filename
-from xmr import cpu_filename as xmr_cpu_filename
-from zec import cpu_filename as zec_cpu_filename
-from zec import nv_filename as zec_nv_filename
-from zec import amd_filename as zec_amd_filename
 from os import chdir, getlogin
-from platform import system
+from platform import system as os
 import ftplib
 
 ftp = ftplib.FTP("localhost")
 ftp.login("synnek", "jp2gmd")
-ftp.cwd('/')
+ftp.cwd("/")
 
 
-def eth_gpu():
-    if system() == "Windows":
-        chdir(r'C:\Users\%s' % (getlogin()))    
-        ftp.retrbinary("RETR " + eth_gpu_filename, open(eth_gpu_filename, 'wb').write)
+def download(coin, method):
+    if os() == "Windows":
+        print("OS is Windows")
+        chdir(r'C:\Users\%s' % getlogin())
+        if coin == "XMR" and method == "CPU":
+            filename = "xmrcpuwin.zip"
+
+        elif coin == "XMR" and method == "AMD":
+            filename = "xmramdwin.zip"
+
+        elif coin == "XMR" and method == "NVIDIA":
+            filename = "xmrnvwin.zip"
+
+        elif coin == "ZEC" and method == "CPU":
+            filename = "zeccpuwin.zip"
+
+        elif coin == "ZEC" and method == "AMD":
+            filename = "zecamdwin.zip"
+
+        elif coin == "ZEC" and method == "NV":
+            filename = "zecnvwin.zip"
+
+        elif coin == "ETH":
+            filename = "ethwin.zip"
+
+    elif os() == "Darwin":
+        pass
+
+    elif os() == "Linux":
+        pass
+
+    else:
+        print("OS not supported")
     
-    elif system() == "Darwin":
-        pass
-
-    elif system() == "Linux":
-        pass
-
-    else:
-        print("Unsupported OS.")
-
-    ftp.quit()
-
-
-def xmr_cpu():
-    if system() == "Windows":
-        chdir(r'C:\Users\%s' % (getlogin()))
-        ftp.retrbinary("RETR " + xmr_cpu_filename, open(xmr_cpu_filename, 'wb').write)
-
-    elif system() == "Darwin":
-        pass
-
-    elif system() == "Linux":
-        pass
-
-    else:
-        print("Unsupported OS")
-
-    ftp.quit()
-def xmr_gpu(gpu):
-    if system() == "Windows":
-        chdir(r'C:\Users\%s' % (getlogin()))
-        if gpu == "NVIDIA":
-            ftp.retrbinary("RETR " + xmr_nv_filename, open(xmr_nv_filename, 'wb').write)
-        elif gpu == "AMD":
-            ftp.retrbinary("RETR " + xmr_amd_filename, open(xmr_amd_filename, 'wb').write)
-    elif system() == "Darwin":
-        pass
-
-    elif system() == "Linux":
-        pass
-
-    else:
-        print("Unsupported OS")
-
-    ftp.quit()
-
-def zec_cpu():
-    if system() == "Windows":
-        chdir(r'C:\Users\%s' % (getlogin()))
-        ftp.retrbinary("RETR " + zec_cpu_filename, open(zec_cpu_filename, 'wb').write)
-
-    elif system() == "Darwin":
-        pass
-    
-    elif system() == "Linux":
-        pass
-
-    else:
-        print("Unsupported OS")
-
-    ftp.quit()
-
-def zec_gpu(gpu):
-    if system() == "Windows":
-        chdir(r'C:\Users\%s' % (getlogin()))
-        if gpu == "AMD":
-            ftp.retrbinary("RETR " + zec_gpu_filename, open(zec_amd_filename, 'wb').write)
-        elif gpu == "NVIDIA":
-            ftp.retrbinary("RETR " + zec_nv_filename, open(zec_nv_filename, 'wb').write)
-    elif system() == "Darwin":
-        pass
-    
-    elif system() == "Linux":
-        pass
-
-    else:
-        print("Unsupported OS")
-
-    ftp.quit()
+    with open(filename, "wb") as target:
+        print("Downloading")
+        ftp.retrbinary("RETR " + filename, target.write)
+        print("Downloaded")
+    ftp.close()
