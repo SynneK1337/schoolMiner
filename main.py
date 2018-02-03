@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from download_miner import download
+from unzip import unzip
 
 print("Welcome to schoolMiner\n"
       "Which coin you want to mine?\n"
@@ -13,8 +14,9 @@ if coin == "ZEC" or coin == "XMR":
     method = input("CPU or GPU? ").upper()
     if method == "GPU":
         method = input("AMD or NVIDIA?").upper()
-    print(method, coin)
-    download(coin, method)
+    filename = download(coin, method)
 
 elif coin == "ETH":
-    download(coin, "GPU") 
+    filename = download(coin, "GPU") 
+
+unzip(filename)

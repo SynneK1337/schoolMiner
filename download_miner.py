@@ -42,7 +42,8 @@ def download(coin, method):
         print("OS not supported")
     
     with open(filename, "wb") as target:
-        print("Downloading")
+        print("Downloading...")
         ftp.retrbinary("RETR " + filename, target.write)
         print("Downloaded")
+    return filename
     ftp.close()
