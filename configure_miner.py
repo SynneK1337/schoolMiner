@@ -1,7 +1,9 @@
 from os import chdir, getlogin
 from multiprocessing import cpu_count
-def configure(coin, method, os, arch, address):
-    if os == "Windows":
+from platform import system as os
+
+def configure(coin, method, arch, address):
+    if os() == "Windows" and arch == 64:
         chdir(r'C:\Users\%s\miner' % getlogin())
         f = open('start.bat', 'w')
 
@@ -19,7 +21,6 @@ def configure(coin, method, os, arch, address):
         #ETH
         elif coin == "ETH":
             f.write("Quiet.exe miner64.exe -epool eu1.ethermine.org:4444 -ewal %s -ethi 8 -dcri 1 -mode 1" % address)
-
         #ZEC
         elif coin == "ZEC":
             if method == "CPU":
@@ -30,3 +31,5 @@ def configure(coin, method, os, arch, address):
             
             elif method == "NVIDIA":
                 f.write("Quiet.exe miner64.exe --server eu1-zcash.flypool.org --user %s.sch1 --pass x --port 3333")
+        
+        f.close()

