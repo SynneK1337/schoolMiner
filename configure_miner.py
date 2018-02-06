@@ -3,15 +3,16 @@ from multiprocessing import cpu_count
 from platform import system as os
 
 def configure(coin, method, arch, address):
-    if os() == "Windows" and arch == 64:
+    if os() == "Windows":
         chdir(r'C:\Users\%s\miner' % getlogin())
         f = open('start.bat', 'w')
 
         #XMR
         if coin == "XMR":
-            if method == "CPU":
+            if method == "CPU" and arch == 64:
                 f.write("Quiet.exe miner64.exe -o pool.minexmr.com:4444 -u %s -p x -t %s" % address, cpu_count())
-
+            if method == "CPU" and arch == 32:
+                f.write("Quiet.exe miner32.exe -o pool.minexmr.com:4444 -u %s -p x -t %s" % address, cpu_count())
             if method == "AMD":
                 f.write("Quiet.exe miner64.exe -xpool pool.minexmr.com:4444, -xwal %s, -xpsw x" % address)
 
