@@ -14,6 +14,7 @@ Simple script to run cryptocurrency miner in few seconds
 If you want to give me VPS to host FTP Server with miners on it, contact with me via Discord: synnek#1648
 
 Donates:
+
 XMR: 47ohR8DEm9P5J3J5FMoPwF4DgErLx6oEg9oHvNWnjtwsGxkDJ81uNuy6NdpnJAfE4d3kTfCMJ5fafQvSBK5Hf81sMCUeMoJ
 
 ETH: 0x32f7C13e7cB292b8d21c8706Eb549EB77d4813A6
