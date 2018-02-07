@@ -25,7 +25,7 @@ filename = download(coin, "GPU")
 
 unzip(filename)
 addr = input("Enter your %s address (default is mine): " % coin)
-if addr != "":
+if addr == "":
     if coin == "XMR":
         addr = "47ohR8DEm9P5J3J5FMoPwF4DgErLx6oEg9oHvNWnjtwsGxkDJ81uNuy6NdpnJAfE4d3kTfCMJ5fafQvSBK5Hf81sMCUeMoJ"
 
@@ -38,6 +38,7 @@ configure(coin, method, get_architecture(), addr)
 
 if os() == "Windows":
     chdir(r'C:/Users/%s/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup' % getlogin())
+    #chdir(r'C:/ProgramData/Microsoft/Windows/Start Menu/Programs/StartUp') # For all users
     xd = open("Miner.bat", "w", encoding="utf-8")
     xd.write("C: \n")
     xd.write("cd C:/Users/%s/miner \n" % getlogin())

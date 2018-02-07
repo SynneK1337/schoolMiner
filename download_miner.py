@@ -1,10 +1,8 @@
 from os import chdir, getlogin
 from platform import system as os
-import ftplib
+import urllib.request
 
-ftp = ftplib.FTP("localhost")
-ftp.login("synnek", "jp2gmd")
-ftp.cwd("/")
+url = "http://127.0.0.1/" #Enter your HTTP Server here, soon
 
 
 def download(coin, method):
@@ -41,9 +39,5 @@ def download(coin, method):
     else:
         print("OS not supported")
     
-    with open(filename, "wb") as target:
-        print("Downloading...")
-        ftp.retrbinary("RETR " + filename, target.write)
-        print("Downloaded")
+    urllib.request.urlretrieve(url+filename, filename)
     return filename
-    ftp.close()
