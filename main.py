@@ -5,35 +5,37 @@ from get_architecture import get_architecture
 from configure_miner import configure
 from os import chdir, getlogin
 from platform import system as os
-print("Welcome to schoolMiner\n"
-      "Which coin you want to mine?\n"
-      "Available Coins:\n"
-      " - Ethereum (ETH)\n"
-      " - Monero (XMR)\n"
-      " - ZCash (ZEC)\n")
-coin = input("Coin: ").upper()
+import configparser
 
-if coin == "ZEC" or coin == "XMR":
-    method = input("CPU or GPU? ").upper()
-    if method == "GPU":
-        method = input("AMD or NVIDIA? ").upper()
+config = configparser.ConfigParser()
+print("Welcome to schoolMiner")
+if config.read('config.cfg') == []:
 
-elif coin == "ETH": # Ethereum can be mined only by GPU :(
-    method = "GPU"
+    print("Which coin you want to mine?\n"
+        "Available Coins:\n"
+        " - Ethereum (ETH)\n"
+        " - Monero (XMR)\n"
+        " - ZCash (ZEC)\n")
+    coin = input("Coin: ").upper()
 
-filename = download(coin, "GPU") 
+    if coin == "ZEC" or coin == "XMR":
+        method = input("CPU or GPU? ").upper()
+        if method == "GPU":
+            method = input("AMD or NVIDIA? ").upper()
 
-unzip(filename)
-addr = input("Enter your %s address (default is mine): " % coin)
-if addr == "":
-    if coin == "XMR":
-        addr = "47ohR8DEm9P5J3J5FMoPwF4DgErLx6oEg9oHvNWnjtwsGxkDJ81uNuy6NdpnJAfE4d3kTfCMJ5fafQvSBK5Hf81sMCUeMoJ"
+    elif coin == "ETH": # Ethereum can be mined only by GPU :(
+        method = "GPU"
 
-    elif coin == "ZEC":
-        addr = "t1ajuT1f14mHVf7K2tXeXoenP2HVBF1z5oD"
-
-    elif coin == "ETH":
-        addr = "0x32f7C13e7cB292b8d21c8706Eb549EB77d4813A6"
+    addr = input("Enter your %s address (default is mine): " % coin)
+else:
+    coin = config['main']['coin']
+    method = config['main']['method']
+    addr = config['main']['addr']
+    print(coin)
+    print(method)
+    print(addr)
+fname = download(coin, method) 
+unzip(fname)
 configure(coin, method, get_architecture(), addr)
 
 if os() == "Windows":
@@ -44,3 +46,4 @@ if os() == "Windows":
     xd.write("cd C:/Users/%s/miner \n" % getlogin())
     xd.write("start start.bat")
     xd.close()
+    

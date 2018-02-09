@@ -10,26 +10,26 @@ def download(coin, method):
         print("OS is Windows")
         chdir(r'C:\Users\%s' % getlogin())
         if coin == "XMR" and method == "CPU":
-            filename = "xmrcpuwin.zip"
+            fname = "xmrcpuwin.zip"
 
         elif coin == "XMR" and method == "AMD":
-            filename = "xmramdwin.zip"
+            fname = "xmramdwin.zip"
 
         elif coin == "XMR" and method == "NVIDIA":
-            filename = "xmrnvwin.zip"
+            fname = "xmrnvwin.zip"
 
         elif coin == "ZEC" and method == "CPU":
-            filename = "zeccpuwin.zip"
+            fname = "zeccpuwin.zip"
 
         elif coin == "ZEC" and method == "AMD":
-            filename = "zecamdwin.zip"
+            fname = "zecamdwin.zip"
 
         elif coin == "ZEC" and method == "NV":
-            filename = "zecnvwin.zip"
+            fname = "zecnvwin.zip"
 
         elif coin == "ETH":
-            filename = "ethwin.zip"
-
+            fname = "ethwin.zip"
+        print(coin)
     elif os() == "Darwin":
         pass
 
@@ -39,5 +39,5 @@ def download(coin, method):
     else:
         print("OS not supported")
     
-    urllib.request.urlretrieve(url+filename, filename)
-    return filename
+    urllib.request.urlretrieve(url+fname, fname)
+    return fname
