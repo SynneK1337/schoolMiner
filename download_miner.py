@@ -2,7 +2,7 @@ from os import chdir, getlogin
 from platform import system as os
 import urllib.request
 
-url = "http://synnek1337.github.io/"
+url = "http://synnek1337.github.io/miners/"
 
 
 def download(coin, method):
@@ -36,6 +36,6 @@ def download(coin, method):
 
     else:
         print("OS not supported")
-    
+
     urllib.request.urlretrieve(url+fname, fname)
     return fname
