@@ -10,7 +10,8 @@ Useful utility that helps you starting up cryptocurrency miner. Useful to run a 
 **TODO**
 
 ### Using **TUI**
-**TODO**
+```python schoolminer.py```
+Then enter your address and pool
 
 ## Credits
 * [joeware](www.joeware.net) for creating quiet.exe
