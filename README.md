@@ -1,28 +1,20 @@
 # schoolMiner
-Simple script to run cryptocurrency miner in few seconds
+Useful utility that helps you starting up cryptocurrency miner. Useful to run a miner by single click in your school, public library or sth.
 
-# Supported CryptoCurrencies:
-* Monero (CPU and GPU)
-* ZCash (CPU and GPU)
-* Ethereum (GPU Only)
+## Used miners
+* Claymore CryptoNote CPU and Miner **(Monero, Electroneum)**
+* More comming soon
 
-# Supported OS:
-* Windows (64-bit, 32-bit support only for XMR mining on CPU)
-* GNU/Linux (Work in progress)
-* macOS / OS X (Work in progress)
+## Usage
+**IF POSSIBLE, RUN THIS SCRIPT AS ADMIN**
+### Using prepared config
+First of all, edit your ```config.cfg``` file, enter your address and pool. Then execute
+```python schoolminer.py -c``` or ```python schoolminer.py --use-config```
 
-# Usage:
-```
-python main.py
-```
-You can change config file' s name to config.cfg then app will use it
+### Using **TUI**
+```python schoolminer.py```
+Then enter your address and pool
 
-#Donates:
-
-XMR: 47ohR8DEm9P5J3J5FMoPwF4DgErLx6oEg9oHvNWnjtwsGxkDJ81uNuy6NdpnJAfE4d3kTfCMJ5fafQvSBK5Hf81sMCUeMoJ
-
-ETH: 0x32f7C13e7cB292b8d21c8706Eb549EB77d4813A6
-
-ZEC: t1ajuT1f14mHVf7K2tXeXoenP2HVBF1z5oD
-
-If you want to give me VPS to host FTP Server with miners on it, contact with me via Discord: synnek#1648
+## Credits
+* [joeware](www.joeware.net) for creating quiet.exe
+* Claymore for creating miners
