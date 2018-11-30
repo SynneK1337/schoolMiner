@@ -11,3 +11,7 @@ Useful utility that helps you starting up cryptocurrency miner. Useful to run a 
 
 ### Using **TUI**
 **TODO**
+
+## Credits
+* [joeware](www.joeware.net) for creating quiet.exe
+* Claymore for creating miners
