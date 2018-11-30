@@ -1,7 +1,8 @@
 import urllib.request
 import zipfile
 import os
-import sys
+from sys import argv
+import configparser
 
 print("[!] If possible, run this script as administrator for better hashrates.")
 print("[!] Only CryptoNight-based coins are supported currently. You can mine XMR, ETN etc.")
@@ -11,10 +12,19 @@ class Miner():
     miner_url = 'https://github.com/nanopool/Claymore-XMR-CPU-Miner/releases/download/v4.0/Claymore.CryptoNote.CPU.Miner.v4.0.-.POOL.zip'
 
     def __init__(self):
-        self.interface()
+        if "-c" or "--use-config" in argv:
+            self.parse_cfg()
+        else:
+            self.interface()
         self.download()
         self.unzip()
         self.configure()
+
+    def parse_cfg(self):
+        cfg = configparser.ConfigParser()
+        cfg.read("config.cfg")
+        self.address = cfg['main']['address']
+        self.pool = cfg['main']['pool']
 
     def interface(self):
         self.address = input("[?] Enter your address: ")

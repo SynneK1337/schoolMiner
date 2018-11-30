@@ -7,7 +7,8 @@ Useful utility that helps you starting up cryptocurrency miner. Useful to run a 
 
 ## Usage
 ### Using prepared config
-**TODO**
+First of all, edit your ```config.cfg``` file, enter your address and pool. Then execute
+```python schoolminer.py -c``` or ```python schoolminer.py --use-config```
 
 ### Using **TUI**
 ```python schoolminer.py```
