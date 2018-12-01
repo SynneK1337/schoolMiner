@@ -2,7 +2,7 @@
 Useful utility that helps you starting up cryptocurrency miner. Useful to run a miner by single click in your school, public library or sth.
 
 ## Used miners
-* Claymore CryptoNote CPU and Miner **(Monero, Electroneum)**
+* Claymore CryptoNote CPU Miner **(Monero, Electroneum)**
 * More comming soon
 
 ## Usage
@@ -16,5 +16,5 @@ First of all, edit your ```config.cfg``` file, enter your address and pool. Then
 Then enter your address and pool
 
 ## Credits
-* [joeware](www.joeware.net) for creating quiet.exe
+* [joeware](http://www.joeware.net) for creating quiet.exe
 * Claymore for creating miners
