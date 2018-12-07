@@ -15,6 +15,10 @@ First of all, edit your ```config.cfg``` file, enter your address and pool. Then
 ```python schoolminer.py```
 Then enter your address and pool
 
+### Pre-compiled binary to use without python installed
+Pre-compiled .exe binary is available to donwload in **Releases** tab
+Usage is almost the same, you can either use TUI or prepared-config method.
+
 ## Credits
 * [joeware](http://www.joeware.net) for creating quiet.exe
 * Claymore for creating miners
